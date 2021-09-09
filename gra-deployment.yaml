@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gra-deployment
+  labels:
+    app: gra
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: gra
+  template:
+    metadata:
+      labels:
+        app: gra
+    spec:
+      containers:
+      - name: gra-deployment
+        image: alehady/tetris-app
+        command: [ "sleep" ]
+        args: [ "infinity" ]
+        ports:
+        - containerPort: 3000
